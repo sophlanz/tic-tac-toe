@@ -86,7 +86,7 @@ function p2winner () {
                     p2Counter ++;
                     const storedPlayers = JSON.parse(localStorage.getItem('players'));
                     const p2Name = storedPlayers[1].name
-                    toggleModal(p2Name);
+                    toggleModalName(p2Name);
                     score();
                     }
                    }
@@ -228,24 +228,39 @@ function score () {
 
 };
 //modal functions
-const modal = document.querySelector(".modal");
-const close = document.querySelector("#close");
-const trigger = document.querySelector('.trigger');
-const modalDisplay = document.querySelector("#pop-up");
+
 //toggle between the screenw tih gameboard and the modal showing the winner. 
-function toggleModal (name){
+function toggleModalName (name){
+    const modalDisplay = document.querySelector("#pop-up");
+    const modal = document.querySelector(".modal");
     modal.classList.toggle('show-modal');
     modalDisplay.innerText = (`Congrats! You have won, ${name}`);
-};
+   };
+function toggleModal (){
+    const modal = document.querySelector(".modal");
+    modal.classList.toggle('show-modal');
+    
+   };
 
-//click out of showing the winner. 
-function closeOnClick (event) {
-    if(event.target == modal){
-        toggleModal();
+(function modal(){
+    if(window.location.href.indexOf('index')!==-1){
+
+        const close = document.querySelector("#close");
+        close.addEventListener('click',toggleModal);
+        //click anywhere on the screen to click out of winner. 
+        window.addEventListener('click',closeOnClick);
     }
-};
-trigger.addEventListener('click',toggleModal);
-close.addEventListener('click',toggleModal);
-//click anywhere on the screen to click out of winner. 
-window.addEventListener('click',closeOnClick);
+    function closeOnClick (event) {
+        const modal = document.querySelector(".modal")
+        if(event.target == modal){
+           toggleModal();
+        }
+    };
+})();
+//click on window and close modal
+
+
+
+
+
 
