@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" href= "style.css">
+    <script src = "index.js" defer></script>
+    <title>Document</title>
+</head>
+<body onload = "createGameBoard(), score()" >
+    <div class = "playerContainer">
+ <!--player 1 display-->
+        <div id= "left">
+            <div id ="p1Card">
+                 <div id="p1Display"></div> 
+            </div>
+            <div id= "p1score"></div>
+       </div>
+
+        <div id = "gameBoard"> </div>
+<!--Player 2 display-->
+        <div id= "right">
+            <div id = "p2Card">
+                <div id= "p2Display"></div>
+            </div>
+             <div id= "p2score"></div>
+         </div>
+        <button id="clearBtn">Play Again</button>
+
+        <!--popup modal-->
+        <button class="trigger">click me</button>
+        <div class= "modal" >
+            <div class= "modal-content">
+                <span id="close">&times;</span>
+                <p id="pop-up"></p>
+                
+            </div>
+        </div>
+   </div>
+</body>
+</html>
