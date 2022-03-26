@@ -6,7 +6,7 @@
             document.getElementById("btn").addEventListener('click', player);
         })
     };
-    if(window.location.href.indexOf('index') !==-1){
+    if(window.location.href.indexOf('home') !==-1){
         
         const storedPlayers = JSON.parse(localStorage.getItem('players'));
         const p1Name = storedPlayers[0].name
@@ -303,7 +303,7 @@ function clearGameBoard (){
      //send added notification
      console.warn("added", {players});
     //for display purposes
-    window.location = "index.html";
+    window.location = "home.html";
     player1.sendData();
     player2.sendData();
     
@@ -345,7 +345,7 @@ function toggleModalTie (){
    };
 
 (function modal(){
-    if(window.location.href.indexOf('index')!==-1){
+    if(window.location.href.indexOf('home')!==-1){
 
         const close = document.querySelector("#close");
         close.addEventListener('click',toggleModal);

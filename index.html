@@ -8,46 +8,10 @@
     <script src = "index.js" defer></script>
     <title>Document</title>
 </head>
-<body onload = "createGameBoard(), score()" >
-    
-    <div class = "gameBoardContainer">
-        <h2 id="game">TIC TAC TOE</h2>
-        
-<div class = "dataPlayers">
-        
- <!--player 1 display-->
-        <div id= "left">
-            <div id ="p1Card">
-                <img src="images/panda.svg" width="100px" height="100px">
-                <img src="images/X.svg"width="100px" height="100px">
-                 <div id="p1Display"></div> 
-                </div>
-            <div id= "p1score"></div>
-           
-       </div>
-<!--Gameboard-->
-        <div id = "gameBoard"> </div>
-<!--Player 2 display-->
-        <div id= "right">
-            <div id = "p2Card">
-                <img src = "images/wolf.svg" width="100px" height="100px">
-                 <img src ="images/O.svg" width="100px" height="100px">
-                <div id= "p2Display"></div>
-            </div>
-             <div id= "p2score"></div>
-         </div>
-        </div>
-        <button id="btn">Play Again</button>
-    
-        <!--popup modal-->
-        
-        <div class= "modal" >
-            <div class= "modal-content">
-                <span id="close">&times;</span>
-                <p id="pop-up"></p>
-                
-            </div>
-        </div>
+<body>
+   <div class = "transparent">
+       <div class=homeText>TIC TAC TOE</div>
+       <button id="enter" onclick="location.href='players.html';">Enter</button>
    </div>
 </body>
 </html>
