@@ -9,22 +9,25 @@
     <title>Document</title>
 </head>
 <body>
-   <div id = "playerSelection">
-       <div id="playerSelection1">
-           <form >
-               <input type = "text" value= "X" id= "p1Marker" readonly>
-                <input type="text" value= "Player1" id="p1Name" onchange=  >
-       </div>
-       <div id= "playerSelection2">
-          
-                <input type="text" value= "O" id= "p2Marker" readonly>
-                <input type="text" value="Player2" id="p2Name" onchange= >
-                <button id="btn">Battle</button>
-           </form>
-            <div id = "display1"></div>
-            <div id = "display2"></div>
-            <div id = "display3"></div>
-       </div>
-   </div>
+   <div id = "pSelectionContainer">
+       <h1 id="players" >TIC TAC TOE</h1>
+    <form >
+        <div id= "playerContainer">
+            <div id="playerSelection1">
+                <img src="images/panda.svg">
+                <img src="images/X.svg">
+                 <input type="text" value= "Player1" id="p1Name"   >
+        </div>
+        <div id= "playerSelection2">
+                <img src = "images/wolf.svg">
+                 <img src ="images/O.svg">
+                 <input type="text"  value="Player2" id="p2Name"  >
+        </div>
+        <button id="btn">Battle</button>
+        </div>
+      
+       
+    </form>
+</div>
 </body>
 </html>

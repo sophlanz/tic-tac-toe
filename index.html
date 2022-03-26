@@ -9,25 +9,36 @@
     <title>Document</title>
 </head>
 <body onload = "createGameBoard(), score()" >
-    <div class = "playerContainer">
+    
+    <div class = "gameBoardContainer">
+        <h2 id="game">TIC TAC TOE</h2>
+        
+<div class = "dataPlayers">
+        
  <!--player 1 display-->
         <div id= "left">
             <div id ="p1Card">
+                <img src="images/panda.svg" width="100px" height="100px">
+                <img src="images/X.svg"width="100px" height="100px">
                  <div id="p1Display"></div> 
-            </div>
+                </div>
             <div id= "p1score"></div>
+           
        </div>
-
+<!--Gameboard-->
         <div id = "gameBoard"> </div>
 <!--Player 2 display-->
         <div id= "right">
             <div id = "p2Card">
+                <img src = "images/wolf.svg" width="100px" height="100px">
+                 <img src ="images/O.svg" width="100px" height="100px">
                 <div id= "p2Display"></div>
             </div>
              <div id= "p2score"></div>
          </div>
-        <button id="clearBtn">Play Again</button>
-
+        </div>
+        <button id="btn">Play Again</button>
+    
         <!--popup modal-->
         
         <div class= "modal" >
