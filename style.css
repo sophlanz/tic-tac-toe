@@ -322,3 +322,8 @@ color:white;
     font-weight:700;
     border:2px solid rgba(201, 198, 198, 0.7)
 }
+.gameType {
+    position:absolute;
+    top:50%;
+    left:35%;
+}

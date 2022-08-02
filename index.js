@@ -1,4 +1,4 @@
-
+ var computer = "false";
 (function ticTacToe (){
     //event listener for players submit page
     if(window.location.href.indexOf('players') !== -1) {
@@ -185,43 +185,7 @@ function upDown  () {
             document.getElementById('p1Card').style.animation = " none";
         }
     }}
-//event listener on each space. Will invoke the winner function. 
-function makeAMove (){
-    //checking to see there's been at least 3 turns
-    if(turn == 0){
-            this.innerHTML = "<img src=\"images/X.svg\">"; 
-            //remove listener so the move can't be changed.
-            this.removeEventListener('click', makeAMove);
-            //monitor whether the space has been selected and by which player
-            this.setAttribute('player1', 'true');
-            turnCounter1 ++
-            
-            if (turnCounter1 > 2){
-                p1winner();
-            } 
-            
-            
-            turn++
-            upDown();
-    } else { 
-        this.innerHTML = "<img src=\"images/O.svg\">";
-    
-        //remove listener so the move can't be changed.
-        this.removeEventListener('click', makeAMove);
-        //monitor whether the space has been selected and by who
-            this.setAttribute('player1', 'false');
-            turnCounter2 ++
-            
-            if (turnCounter2 > 2){
-                p2winner();
-            }
-        turn--
-        upDown();
-    }
-    if(turnCounter1 == 5 || turnCounter2 == 5 ) {
-     toggleModalTie();
-    }
-    };
+
 //adds spaces to gameboard, add's event listener for makeAMove
  function createGameBoard  () {
      //check to see if id=space element exists,if not create new board;
@@ -274,15 +238,15 @@ function clearGameBoard (){
      ev.preventDefault()// don't reload the page, so data will still be on page
      const players = [];
      //create player 1 user object
-     let player1 = {
-         name:document.querySelector('#p1Name').value,
-         marker: "X"
-     };
+        let player1 = {
+            name:document.querySelector('#p1Name').value,
+            marker: "X"
+        };
      //create player 2 user object
-     let player2 = {
-         name:document.querySelector('#p2Name').value,
-         marker: "O"
-     };
+        let player2 = {
+            name:document.querySelector('#p2Name').value,
+            marker: "O"
+        }
      //add send data function to be used for display
      player1.sendData = function (){
         document.getElementById("p1Display")
@@ -294,6 +258,7 @@ function clearGameBoard (){
         .innerText = player2.name;
 
      };
+     
     //push to player array;
      players.push(player1,player2);
      //save to local storage
@@ -306,12 +271,56 @@ function clearGameBoard (){
     window.location = "home.html";
     player1.sendData();
     player2.sendData();
-    
-    
     //player1.sendDataDisplay();
-    //player2.sendDataDisplay();
-
+    //player2.sendDataDisplay();\
  };
+
+ //event listener on each space. Will invoke the winner function. 
+function makeAMove (){
+    //change code depending if its 2 player or 1 player with computer;
+   let type= document.getElementById('p2Display')
+    .innerText
+    //2 players
+    if(type!=="Computer"){
+        //checking to see there's been at least 3 turns
+         if(turn == 0){
+             this.innerHTML = "<img src=\"images/X.svg\">"; 
+             //remove listener so the move can't be changed.
+             this.removeEventListener('click', makeAMove);
+             //monitor whether the space has been selected and by which player
+             this.setAttribute('player1', 'true');
+             turnCounter1 ++
+
+             if (turnCounter1 > 2){
+                 p1winner();
+             } 
+
+
+             turn++
+             upDown();
+} else { 
+    this.innerHTML = "<img src=\"images/O.svg\">";
+
+    //remove listener so the move can't be changed.
+    this.removeEventListener('click', makeAMove);
+    //monitor whether the space has been selected and by who
+        this.setAttribute('player1', 'false');
+        turnCounter2 ++
+        
+        if (turnCounter2 > 2){
+            p2winner();
+        }
+    turn--
+    upDown();
+}
+    } else {
+        //vs computer
+    }
+    
+    if(turnCounter1 == 5 || turnCounter2 == 5 ) {
+     toggleModalTie();
+    }
+    };
 //displays score on screen, resets turn counter to zero
 function score () {
   const p1Score =  document.querySelector("#p1score");
