@@ -1,4 +1,4 @@
- var computer = "false";
+
 (function ticTacToe (){
     //event listener for players submit page
     if(window.location.href.indexOf('players') !== -1) {
@@ -141,7 +141,7 @@ function p2winner () {
 let turn = 0;//player 1, turn=1 player2
 let turnCounter1 = 0;
 let turnCounter2 =0;
-upDown();
+
 //updown animation for player turn
 function upDown  () {
     if(turn == 0 ){
@@ -184,8 +184,7 @@ function upDown  () {
             
             document.getElementById('p1Card').style.animation = " none";
         }
-    }}
-
+    }};
 //adds spaces to gameboard, add's event listener for makeAMove
  function createGameBoard  () {
      //check to see if id=space element exists,if not create new board;
@@ -231,8 +230,7 @@ function clearGameBoard (){
     } 
         
     
-}
-
+};
  function player (ev){
      //click event
      ev.preventDefault()// don't reload the page, so data will still be on page
@@ -274,9 +272,9 @@ function clearGameBoard (){
     //player1.sendDataDisplay();
     //player2.sendDataDisplay();\
  };
-
  //event listener on each space. Will invoke the winner function. 
 function makeAMove (){
+    upDown();
     //change code depending if its 2 player or 1 player with computer;
    let type= document.getElementById('p2Display')
     .innerText
@@ -294,29 +292,24 @@ function makeAMove (){
              if (turnCounter1 > 2){
                  p1winner();
              } 
-
-
              turn++
              upDown();
 } else { 
     this.innerHTML = "<img src=\"images/O.svg\">";
-
     //remove listener so the move can't be changed.
     this.removeEventListener('click', makeAMove);
     //monitor whether the space has been selected and by who
         this.setAttribute('player1', 'false');
         turnCounter2 ++
-        
         if (turnCounter2 > 2){
             p2winner();
         }
     turn--
     upDown();
-}
+        }       
     } else {
         //vs computer
     }
-    
     if(turnCounter1 == 5 || turnCounter2 == 5 ) {
      toggleModalTie();
     }
@@ -329,10 +322,7 @@ function score () {
   p2Score.innerText= `Wins: ${p2Counter}`;
   turnCounter1 == 0;
   turnCounter2 ==0;
-
 };
-//modal functions
-
 //toggle between the screenw tih gameboard and the modal showing the winner. 
 function toggleModalName (name){
     const modalDisplay = document.querySelector("#pop-up");
@@ -355,7 +345,6 @@ function toggleModalTie (){
 
 (function modal(){
     if(window.location.href.indexOf('home')!==-1){
-
         const close = document.querySelector("#close");
         close.addEventListener('click',toggleModal);
         //click anywhere on the screen to click out of winner. 
